@@ -64,19 +64,16 @@ const UserInfo = () => {
 const Home: BlitzPage = () => {
   return (
     <>
-      <Head>
-        <title>Ashutosh Pandey</title>
-      </Head>
-      <body>
-        <div className="bg-sky-600 text-white">
-          <NavBar />
-          <Introduction />
-          <About />
-          <TechStack />
-          <Projects />
-          <Connect />
-        </div>
-      </body>
+      <title>Ashutosh Pandey</title>
+
+      <div className="bg-sky-600 text-white">
+        <NavBar />
+        <Introduction />
+        <About />
+        <TechStack />
+        <Projects />
+        <Connect />
+      </div>
     </>
   )
 }
