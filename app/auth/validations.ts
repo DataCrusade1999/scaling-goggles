@@ -40,3 +40,9 @@ export const ChangePassword = z.object({
   currentPassword: z.string(),
   newPassword: password,
 })
+
+export const ConnectWithMe = z.object({
+  email,
+  name: z.string(),
+  message: z.string(),
+})
