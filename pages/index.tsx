@@ -14,6 +14,7 @@ import TechStack from "app/project/pages/TechStack"
 import Projects from "app/project/pages/Projects"
 import { Connect } from "app/project/pages/Connect"
 import LoginForm from "app/auth/components/LoginForm"
+import Head from "next/head"
 
 /*
  * This file is just for a pleasant getting started page for your new app.
@@ -63,14 +64,19 @@ const UserInfo = () => {
 const Home: BlitzPage = () => {
   return (
     <>
-      <div className="bg-sky-600 text-white">
-        <NavBar />
-        <Introduction />
-        <About />
-        <TechStack />
-        <Projects />
-        <Connect />
-      </div>
+      <Head>
+        <title>Ashutosh Pandey</title>
+      </Head>
+      <body>
+        <div className="bg-sky-600 text-white">
+          <NavBar />
+          <Introduction />
+          <About />
+          <TechStack />
+          <Projects />
+          <Connect />
+        </div>
+      </body>
     </>
   )
 }
