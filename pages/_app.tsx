@@ -3,6 +3,8 @@ import { AuthenticationError, AuthorizationError } from "blitz"
 import React from "react"
 import { withBlitz } from "app/blitz-client"
 import "app/core/styles/index.css"
+import Head from "next/head"
+import Layout from "app/core/layouts/Layout"
 
 function RootErrorFallback({ error }: ErrorFallbackProps) {
   if (error instanceof AuthenticationError) {
@@ -27,7 +29,17 @@ function RootErrorFallback({ error }: ErrorFallbackProps) {
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ErrorBoundary FallbackComponent={RootErrorFallback}>
-      <Component {...pageProps} />
+      <Layout title="Ashutosh Pandey">
+        <Head>
+          <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+          <meta
+            name="description"
+            content="Ashutosh Pandey's personal website made with Blitz.js"
+          />
+          <meta name="theme-color" content="#317EFB" />
+        </Head>
+        <Component {...pageProps} />
+      </Layout>
     </ErrorBoundary>
   )
 }
