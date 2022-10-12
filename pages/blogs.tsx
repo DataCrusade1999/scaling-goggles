@@ -3,6 +3,7 @@ import React from "react"
 import Articles from "app/core/components/Articles"
 //import Seo from "app/core/components/Seo";
 import { fetchAPI } from "../lib/api"
+import { GetStaticProps } from "next"
 
 const Blogs = ({ articles }) => {
   return (
@@ -12,14 +13,14 @@ const Blogs = ({ articles }) => {
       </Head>
       <h1 className="text-7xl text-center pt-[20px] pb-[20px] font-bold">/blogs</h1>
       <canvas width={40} height={40} hidden></canvas>
-      <div className="w-[650px] container">
+      <div className="w-650 container">
         <Articles articles={articles} />
       </div>
     </>
   )
 }
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   // Run API calls in parallel
   const articlesRes = await fetchAPI("/articles", { populate: ["image", "category"] })
 

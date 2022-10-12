@@ -1,9 +1,7 @@
-import { fetchAPI } from "lib/api"
 import { GetStaticProps } from "next"
 import Head from "next/head"
 import Link from "next/link"
 import React from "react"
-import ReactMarkdown from "react-markdown"
 import Moment from "react-moment"
 
 const Newsletter = ({ issuesSent }) => {
@@ -19,7 +17,7 @@ const Newsletter = ({ issuesSent }) => {
         <ul>
           {issuesSent.map((issue) => (
             <li key={issue.id}>
-              <Link href={`/newsletter/${issue.id}`}>
+              <Link href={`/newsletters/${issue.id}`}>
                 <a>
                   <p className="pt-[36px] text-blog-list-title">{issue.title}</p>
                 </a>

@@ -1,4 +1,5 @@
 import Articles from "app/core/components/Articles"
+import { GetStaticPaths, GetStaticProps } from "next"
 
 import { fetchAPI } from "../../lib/api"
 
@@ -16,7 +17,7 @@ const Category = ({ category }) => {
   )
 }
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const categoriesRes = await fetchAPI("/categories", { fields: ["slug"] })
 
   return {
@@ -29,9 +30,9 @@ export async function getStaticPaths() {
   }
 }
 
-export async function getStaticProps({ params }) {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const matchingCategories = await fetchAPI("/categories", {
-    filters: { slug: params.slug },
+    filters: { slug: params?.slug },
     populate: {
       articles: {
         populate: "*",

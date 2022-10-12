@@ -4,6 +4,7 @@ import ReactMarkdown from "react-markdown"
 import Image from "next/image"
 import { fetchAPI } from "../../lib/api"
 import { getStrapiMedia } from "../../lib/media"
+import { GetStaticPaths, GetStaticProps } from "next"
 
 const Article = ({ article }) => {
   const imageUrl = getStrapiMedia(article.attributes.image)
@@ -13,7 +14,7 @@ const Article = ({ article }) => {
       <canvas height={70} width={70} hidden></canvas>
       <div className="w-650 container">
         <div>
-          <h1 className=" text-blog-title pb-[20px]">{article.attributes.title}</h1>
+          <h1 className="text-blog-title pb-[20px]">{article.attributes.title}</h1>
           <div className="flex space-x-4">
             <div>
               {article.attributes.author.data.attributes.picture && (
@@ -43,14 +44,14 @@ const Article = ({ article }) => {
           <Image src={imageUrl} alt="" width={650} height={400} />
         </div>
         <div className="text-justify">
-          <ReactMarkdown className="text-[18px]">{article.attributes.content}</ReactMarkdown>
+          <ReactMarkdown className="text-[18px] prose">{article.attributes.content}</ReactMarkdown>
         </div>
       </div>
     </>
   )
 }
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const articlesRes = await fetchAPI("/articles", { fields: ["slug"] })
 
   return {
@@ -63,10 +64,10 @@ export async function getStaticPaths() {
   }
 }
 
-export async function getStaticProps({ params }) {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const articlesRes = await fetchAPI("/articles", {
     filters: {
-      slug: params.slug,
+      slug: params?.slug,
     },
     populate: ["image", "category", "author.picture"],
   })

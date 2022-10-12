@@ -1,3 +1,4 @@
+import { GetStaticPaths, GetStaticProps } from "next"
 import React from "react"
 import Moment from "react-moment"
 
@@ -20,7 +21,7 @@ const NewsletterContent = ({ newsletter }) => {
   )
 }
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const API_KEY = process.env.NEXT_PUBLIC_NEWSLETTER_API_KEY
   const allIssues = await fetch(`http://localhost:8010/proxy/v2/issues`, {
     method: "GET",
@@ -41,9 +42,9 @@ export async function getStaticPaths() {
   }
 }
 
-export async function getStaticProps({ params }) {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const API_KEY = process.env.NEXT_PUBLIC_NEWSLETTER_API_KEY
-  const res = await fetch(`http://localhost:8010/proxy/v2/issues/${params.slug}`, {
+  const res = await fetch(`http://localhost:8010/proxy/v2/issues/${params?.slug}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

@@ -60,7 +60,7 @@ export const PersonalList: React.FC = (): JSX.Element => {
             <Arrow />
             <span className="pl-2">
               <Link href={Routes.Podcast()}>
-                <a className="text-[#5b34da] hover:underline">Podcasts</a>
+                <a className="text-[#5b34da] hover:underline">/podcasts</a>
               </Link>{" "}
               that I listen to
             </span>
@@ -70,14 +70,9 @@ export const PersonalList: React.FC = (): JSX.Element => {
           <div className="flex flex-row pt-2 pb-2">
             <Arrow />
             <span className="pl-2">
-              <a
-                target="_blank"
-                rel="noreferrer"
-                className="text-[#5b34da] hover:underline"
-                href="https://reactjs.org/"
-              >
-                Documentaries
-              </a>{" "}
+              <Link href={Routes.Docmentaries()}>
+                <a className="text-[#5b34da] hover:underline">/documentaries</a>
+              </Link>{" "}
               that I have watched
             </span>
           </div>
