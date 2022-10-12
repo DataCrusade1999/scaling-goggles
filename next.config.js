@@ -7,7 +7,7 @@ const { withBlitz } = require("@blitzjs/next")
 const config = {
   images: {
     loader: "default",
-    domains: ["www.w3schools.com", "localhost"],
+    domains: ["www.w3schools.com", "localhost", "datacrusade.me"],
   },
 }
 

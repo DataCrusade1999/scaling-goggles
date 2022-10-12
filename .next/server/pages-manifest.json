@@ -2,11 +2,5 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/404": "pages/404.html",
-  "/api/rpc/[[...blitz]]": "pages/api/rpc/[[...blitz]].js",
-  "/auth/forgot-password": "pages/auth/forgot-password.html",
-  "/auth/login": "pages/auth/login.html",
-  "/auth/reset-password": "pages/auth/reset-password.html",
-  "/auth/signup": "pages/auth/signup.html",
-  "/": "pages/index.html"
+  "/newsletters": "pages/newsletters.js"
 }
