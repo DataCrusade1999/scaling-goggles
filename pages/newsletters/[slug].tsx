@@ -23,7 +23,7 @@ const NewsletterContent = ({ newsletter }) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const API_KEY = process.env.NEXT_PUBLIC_NEWSLETTER_API_KEY
-  const allIssues = await fetch(`http://localhost:8010/proxy/v2/issues`, {
+  const allIssues = await fetch(`https://www.getrevue.co/api/v2/issues`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -44,7 +44,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const API_KEY = process.env.NEXT_PUBLIC_NEWSLETTER_API_KEY
-  const res = await fetch(`http://localhost:8010/proxy/v2/issues/${params?.slug}`, {
+  const res = await fetch(`https://www.getrevue.co/api/v2/issues/${params?.slug}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
