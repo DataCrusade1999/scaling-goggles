@@ -7,8 +7,9 @@ export interface FormProps<S extends z.ZodType<any, any>>
   extends Omit<PropsWithoutRef<JSX.IntrinsicElements["form"]>, "onSubmit"> {
   /** All your form fields */
   children?: ReactNode
-  /** Text to display in the submit button */
+  /** Text to display in the submit button*/
   submitText?: string
+  genericButton?: JSX.IntrinsicElements["button"]
   schema?: S
   onSubmit: (values: z.infer<S>) => Promise<void | OnSubmitResult>
   initialValues?: FormikProps<z.infer<S>>["initialValues"]
@@ -24,6 +25,7 @@ export const FORM_ERROR = "FORM_ERROR"
 export function Form<S extends z.ZodType<any, any>>({
   children,
   submitText,
+  genericButton,
   schema,
   initialValues,
   onSubmit,
@@ -58,11 +60,20 @@ export function Form<S extends z.ZodType<any, any>>({
           )}
 
           {submitText && (
-            <button type="submit" disabled={isSubmitting}>
-              {submitText}
-            </button>
+            <>
+              <div className="pt-5">
+                <button
+                  disabled={isSubmitting}
+                  type="submit"
+                  className="w-[100px] h-[40px] pr-[10px] pl-[10px] border-2 border-[#5b34da] rounded-lg hover:bg-[#5b34da]  hover:text-white"
+                >
+                  {submitText}
+                </button>
+              </div>
+              {/*<button type="submit">{submitText}</button>*/}
+            </>
           )}
-
+          {genericButton && <>{genericButton}</>}
           <style global jsx>{`
             .form > * + * {
               margin-top: 1rem;

@@ -3,7 +3,6 @@ import { Form, FORM_ERROR } from "app/core/components/Form"
 import signup from "app/auth/mutations/signup"
 import { Signup } from "app/auth/validations"
 import { useMutation } from "@blitzjs/rpc"
-import NavBar from "app/core/components/NavBar"
 
 type SignupFormProps = {
   onSuccess?: () => void
@@ -13,7 +12,6 @@ export const SignupForm = (props: SignupFormProps) => {
   const [signupMutation] = useMutation(signup)
   return (
     <>
-      <NavBar />
       <div>
         <h1 className="flex justify-center text-4xl">Create an Account</h1>
         <div className="m-24 flex justify-center">

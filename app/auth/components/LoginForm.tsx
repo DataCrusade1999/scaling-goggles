@@ -6,7 +6,7 @@ import login from "app/auth/mutations/login"
 import { Login } from "app/auth/validations"
 import { useMutation } from "@blitzjs/rpc"
 import { Routes } from "@blitzjs/next"
-import NavBar from "app/core/components/NavBar"
+
 type LoginFormProps = {
   onSuccess?: (user: PromiseReturnType<typeof login>) => void
 }
@@ -15,7 +15,6 @@ export const LoginForm = (props: LoginFormProps) => {
   const [loginMutation] = useMutation(login)
   return (
     <>
-      <NavBar />
       <div>
         <h1 className="flex justify-center text-4xl">Login</h1>
         <div className="m-24 flex justify-center">

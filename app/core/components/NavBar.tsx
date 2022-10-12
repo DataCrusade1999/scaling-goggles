@@ -1,48 +1,44 @@
 import React from "react"
 import Link from "next/link"
 import { Routes } from "@blitzjs/next"
+import { Github, Twitter, RSSFeed, Home } from "public/logo"
+
 export const NavBar: React.FC = (): JSX.Element => {
   return (
     <>
-      <div className="m-3 p-3 flex flex-row">
-        <div className="flex flex-row space-x-2 w-1/2">
-          <div>
-            <Link href={Routes.Home()}>
-              <a className="px-5 py-2.5 relative rounded group overflow-hidden font-medium bg-purple-50 text-purple-600 inline-block">
-                <span className="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-purple-600 group-hover:h-full opacity-90"></span>
-                <span className="relative group-hover:text-white">Home</span>
-              </a>
-            </Link>
-          </div>
-          <div>
-            <a
-              href="#_"
-              className="px-5 py-2.5 relative rounded group overflow-hidden font-medium bg-purple-50 text-purple-600 inline-block"
-            >
-              <span className="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-purple-600 group-hover:h-full opacity-90"></span>
-              <span className="relative group-hover:text-white">Blogs</span>
-            </a>
-          </div>
-        </div>
-        <div className="flex justify-end flex-row space-x-2 w-1/2">
-          <div>
-            <Link href={Routes.LoginPage()}>
-              <a className="px-5 py-2.5 relative rounded group overflow-hidden font-medium bg-purple-50 text-purple-600 inline-block">
-                <span className="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-purple-600 group-hover:h-full opacity-90"></span>
-                <span className="relative group-hover:text-white">Login</span>
-              </a>
-            </Link>
-          </div>
-          <div>
-            <Link href={Routes.SignupPage()}>
-              <a className="px-5 py-2.5 relative rounded group overflow-hidden font-medium bg-purple-50 text-purple-600 inline-block">
-                <span className="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-purple-600 group-hover:h-full opacity-90"></span>
-                <span className="relative group-hover:text-white">Sign-Up</span>
-              </a>
-            </Link>
-          </div>
-        </div>
-      </div>
+      <nav className="m-auto p-4 sticky top-0 text-[18px] flex space-x-4 justify-center flex-row bg-white z-10">
+        <Link href={Routes.Home()}>
+          <a>
+            <Home />
+          </a>
+        </Link>
+        <canvas width="100" height="30" hidden={true}></canvas>
+        <Link href={Routes.About()} as="/about-me">
+          <a className="hover:underline hover:text-[#5b34da]">about</a>
+        </Link>
+        <Link href={Routes.Blogs()} as="/blogs">
+          <a className="hover:underline hover:text-[#5b34da]">blogs</a>
+        </Link>
+        <Link href={Routes.Newsletter()}>
+          <a className="hover:underline hover:text-[#5b34da]">newsletter</a>
+        </Link>
+        <Link href={Routes.Categories()}>
+          <a className="hover:underline hover:text-[#5b34da]">categories</a>
+        </Link>
+
+        <Link href={Routes.Uses()} as="/uses">
+          <a className="hover:underline hover:text-[#5b34da]">uses</a>
+        </Link>
+        <a target="_blank" href="https://github.com/DataCrusade1999" rel="noreferrer">
+          <Github />
+        </a>
+        <a target="_blank" href="https://twitter.com/DataCrusade1999" rel="noreferrer">
+          <Twitter />
+        </a>
+        <a target="_blank" href="" rel="noreferrer">
+          <RSSFeed />
+        </a>
+      </nav>
     </>
   )
 }
