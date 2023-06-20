@@ -38,20 +38,20 @@ const Newsletter = ({ issuesSent }) => {
 
 export default Newsletter
 
-export const getStaticProps: GetStaticProps = async () => {
-  const API_KEY = process.env.NEXT_PUBLIC_NEWSLETTER_API_KEY
-  const res = await fetch("https://www.getrevue.co/api/v2/issues", {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Token ${API_KEY}`,
-    },
-  })
-  const issuesSent = await res.json()
-  return {
-    props: {
-      issuesSent,
-    },
-    revalidate: 1,
-  }
-}
+// export const getStaticProps: GetStaticProps = async () => {
+//   const API_KEY = process.env.NEXT_PUBLIC_NEWSLETTER_API_KEY
+//   const res = await fetch("https://www.getrevue.co/api/v2/issues", {
+//     method: "GET",
+//     headers: {
+//       "Content-Type": "application/json",
+//       Authorization: `Token ${API_KEY}`,
+//     },
+//   })
+//   const issuesSent = await res.json()
+//   return {
+//     props: {
+//       issuesSent,
+//     },
+//     revalidate: 1,
+//   }
+// }

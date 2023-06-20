@@ -1,6 +1,6 @@
 {
-  "..\\node_modules\\@blitzjs\\rpc\\dist\\chunks\\rpc.mjs -> debug": {
-    "id": "..\\node_modules\\@blitzjs\\rpc\\dist\\chunks\\rpc.mjs -> debug",
+  "../node_modules/@blitzjs/rpc/dist/chunks/rpc.mjs -> debug": {
+    "id": 1227,
     "files": []
   }
 }

@@ -1,7 +1,22 @@
 {
   "/_app": "pages/_app.js",
-  "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/blogs/[slug]": "pages/blogs/[slug].js",
-  "/": "pages/index.js"
+  "/404": "pages/404.js",
+  "/about-me": "pages/about-me.js",
+  "/api/rpc/[[...blitz]]": "pages/api/rpc/[[...blitz]].js",
+  "/auth/forgot-password": "pages/auth/forgot-password.js",
+  "/auth/login": "pages/auth/login.js",
+  "/auth/reset-password": "pages/auth/reset-password.js",
+  "/auth/signup": "pages/auth/signup.js",
+  "/": "pages/index.js",
+  "/uses": "pages/uses.js",
+  "/blogs": "pages/blogs.js",
+  "/categories": "pages/categories.js",
+  "/categories/[slug]": "pages/categories/[slug].js",
+  "/newsletters": "pages/newsletters.js",
+  "/newsletters/[slug]": "pages/newsletters/[slug].js",
+  "/_error": "pages/_error.js",
+  "/about-me/podcasts": "pages/about-me/podcasts.js",
+  "/about-me/documentaries": "pages/about-me/documentaries.js",
+  "/blogs/[slug]": "pages/blogs/[slug].js"
 }

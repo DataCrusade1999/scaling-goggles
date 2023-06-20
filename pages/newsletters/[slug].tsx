@@ -21,41 +21,41 @@ const NewsletterContent = ({ newsletter }) => {
   )
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const API_KEY = process.env.NEXT_PUBLIC_NEWSLETTER_API_KEY
-  const allIssues = await fetch(`https://www.getrevue.co/api/v2/issues`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Token ${API_KEY}`,
-    },
-  })
-  const issues = await allIssues.json()
+// export const getStaticPaths: GetStaticPaths = async () => {
+//   const API_KEY = process.env.NEXT_PUBLIC_NEWSLETTER_API_KEY
+//   const allIssues = await fetch(`https://www.getrevue.co/api/v2/issues`, {
+//     method: "GET",
+//     headers: {
+//       "Content-Type": "application/json",
+//       Authorization: `Token ${API_KEY}`,
+//     },
+//   })
+//   const issues = await allIssues.json()
 
-  return {
-    paths: issues.map((issue) => ({
-      params: {
-        slug: String(issue.id),
-      },
-    })),
-    fallback: false,
-  }
-}
+//   return {
+//     paths: issues.map((issue) => ({
+//       params: {
+//         slug: String(issue.id),
+//       },
+//     })),
+//     fallback: false,
+//   }
+// }
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const API_KEY = process.env.NEXT_PUBLIC_NEWSLETTER_API_KEY
-  const res = await fetch(`https://www.getrevue.co/api/v2/issues/${params?.slug}`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Token ${API_KEY}`,
-    },
-  })
-  const newsletterRes = await res.json()
-  return {
-    props: { newsletter: newsletterRes.issue[0] },
-    revalidate: 1,
-  }
-}
+// export const getStaticProps: GetStaticProps = async ({ params }) => {
+//   const API_KEY = process.env.NEXT_PUBLIC_NEWSLETTER_API_KEY
+//   const res = await fetch(`https://www.getrevue.co/api/v2/issues/${params?.slug}`, {
+//     method: "GET",
+//     headers: {
+//       "Content-Type": "application/json",
+//       Authorization: `Token ${API_KEY}`,
+//     },
+//   })
+//   const newsletterRes = await res.json()
+//   return {
+//     props: { newsletter: newsletterRes.issue[0] },
+//     revalidate: 1,
+//   }
+// }
 
 export default NewsletterContent
